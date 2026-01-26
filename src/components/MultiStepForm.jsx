@@ -146,7 +146,7 @@ const MultiStepForm = () => {
                 )}
                 {currentStep < totalSteps ? (
                     <button className="btn-primary" onClick={handleNext}>
-                        Buy now
+                        Submit
                     </button>
                 ) : (
                     <button className="btn-primary" onClick={handleSubmit}>

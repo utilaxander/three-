@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <div className="app-container">
         <header className="app-header">
-          <h1>Create Your Account</h1>
+          <h1>Submit Your Details</h1>
         </header>
         <main>
           <MultiStepForm />

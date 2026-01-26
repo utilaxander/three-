@@ -1,8 +1,12 @@
 :root {
   /* Brand Colors */
-  --sky-gradient: linear-gradient(90deg, #ff0000, #0000ff); /* Red -> Blue */
-  --primary-color: #db2777; /* Fallback Pink */
+  --sky-gradient: linear-gradient(90deg, #ff0000, #0000ff);
+  /* Red -> Blue */
+  --primary-color: #db2777;
+  /* Fallback Pink */
   --primary-hover-color: #be185d;
+  --three-black: #000000;
+  --three-red: #FA8C7C;
   --secondary-color: #9ca3af;
   --text-main: #111827;
   --text-secondary: #4b5563;
@@ -24,7 +28,8 @@
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: radial-gradient(circle at top left, #fdf4ff 0%, #f3fdfc 50%, #f2f2ff 100%); /* Subtle colored mesh */
+  background: radial-gradient(circle at top left, #fdf4ff 0%, #f3fdfc 50%, #f2f2ff 100%);
+  /* Subtle colored mesh */
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
@@ -38,127 +43,562 @@ body {
   width: 100%;
   max-width: 640px;
   padding: 2rem 1rem;
-  margin: 0 auto; /* Center the form */
+  margin: 0 auto;
+  /* Center the form */
 }
 
 /* Navbar */
-/* Navbar (Top) */
-.navbar {
+/* Navbar */
+/* Three Navbar Styles */
+.three-navbar {
   width: 100%;
-  background-color: var(--white);
-  box-shadow: var(--shadow-sm);
-  padding: 0; /* Removed padding from container */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Closer to Three brand */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 50;
-  display: flex;
-  flex-direction: column; /* Stack content and line */
-  justify-content: center;
+  z-index: 100;
 }
 
-.navbar-simple-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 0.75rem 0; /* Moved padding here */
-}
-
-.navbar-gradient-line {
-  height: 2px; /* Thinner line */
-  width: 100%;
-  background: var(--sky-gradient);
-  opacity: 0.8; /* Softer appearance */
-  filter: blur(0.5px); /* Very slight blur for softness */
-}
-
-.navbar-logo {
-  height: 32px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* Footer (Bottom) */
-.footer {
-  width: 100%;
-  background-color: var(--white);
-  padding: 0;
-  margin-top: auto; /* Push to bottom if using flex column on body */
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-content {
-  width: 100%;
+.three-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0 1rem;
   display: flex;
+  align-items: center;
+}
+
+/* Top White Strip */
+.three-navbar-top {
+  background-color: var(--white);
+  height: 60px;
+  /* Reduced specific height to fit content */
+  border-bottom: 1px solid #eee;
+}
+
+.top-row {
+  height: 100%;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
-.footer-left {
+.three-left-section {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  height: 100%;
 }
 
-.footer-logo {
+.three-logo {
   height: 32px;
   width: auto;
+  margin-right: 2rem;
   object-fit: contain;
 }
 
-.footer-copyright {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
+.three-tabs {
+  display: flex;
+  height: 100%;
 }
 
-.footer-center {
+.three-tab {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  text-decoration: none;
+  color: #666;
+  /* Gray for inactive */
+  font-weight: 500;
+  height: 100%;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.three-tab.active {
+  color: #000;
+  font-weight: 700;
+}
+
+.three-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #FA8C7C;
+  /* Coral match */
+}
+
+/* Right Section Utility */
+.three-right-section {
+  display: flex;
+  align-items: center;
+  /* Center items vertically */
+  height: 100%;
+}
+
+.three-contact-group {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  /* Align text to the right */
+  justify-content: center;
+  margin-right: 2rem;
+  /* Space between content and actions */
+  gap: 4px;
+}
+
+.three-phone {
+  font-weight: 700;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.three-util-links {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 0.8rem;
 }
 
-.footer-links-row {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.footer-links-row a {
-  color: var(--text-secondary);
+.three-util-links a {
   text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.2s;
+  color: #555;
 }
 
-.footer-links-row a:hover {
-  color: var(--primary-color);
+.three-util-links a:hover {
   text-decoration: underline;
 }
 
-.footer-right {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-main);
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
+.util-divider {
+  color: #ccc;
 }
 
-.footer-gradient-line {
-  height: 2px; /* Thinner line */
+.three-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+  /* Match height */
+}
+
+/* Main Coral Strip */
+.three-navbar-main {
+  background-color: #FA8C7C;
+  /* Coral from image */
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.main-row {
   width: 100%;
-  background: var(--sky-gradient);
-  opacity: 0.8; /* Softer appearance */
-  filter: blur(0.5px); /* Very slight blur for softness */
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.three-main-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.three-nav-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.three-nav-link:hover {
+  opacity: 0.8;
+}
+
+/* ... existing code ... */
+
+/* Mobile Menu Base Styles */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu-content {
+  display: none;
+}
+
+/* Tablet Layout (<1024px) */
+@media (max-width: 1024px) {
+  .three-right-section {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+/* Mobile Layout (<768px) */
+@media (max-width: 768px) {
+
+  /* Top Strip: Flex with Logo left, Actions right */
+  .three-navbar-top {
+    height: auto;
+    padding: 0.5rem 0;
+  }
+
+  .top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Hide specific Desktop elements */
+  .three-tabs,
+  .three-right-section,
+  .desktop-text {
+    /* Hide text labels for login/basket on mobile if preferred, or keep them? User said "buttons", usually implies icons+text or just icons. Let's keep icons only for space or small text. */
+    display: none !important;
+  }
+
+  /* Main Strip: Menu Left, Search Right */
+  .three-navbar-main {
+    background-color: #FA8C7C;
+    height: 60px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .main-row {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    /* Space between Menu (Left) and Search (Right) */
+    align-items: center;
+  }
+
+  /* Main Links are hidden, moved to menu */
+  .three-main-links {
+    display: none;
+  }
+
+  /* Menu Button */
+  .mobile-menu-btn {
+    display: block;
+    color: black;
+    margin-right: 1rem;
+    /* Space between menu and search if close, but justify-between handles main gap */
+    padding: 0;
+  }
+
+  /* Search Container: Adjust width */
+  .three-search-container {
+    display: flex;
+    width: 160px;
+    /* Reduced fixed width on mobile */
+    max-width: none;
+    height: 36px;
+    /* Slightly shorter */
+    margin-left: auto;
+    /* Push to right */
+  }
+
+  .three-search-input {
+    font-size: 14px;
+  }
+
+  /* Mobile Menu Dropdown */
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* Immediately below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+    z-index: 99;
+    /* Below navbar (100) but above content */
+  }
+
+  .mobile-link {
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    border-bottom: 1px solid #f9f9f9;
+  }
+
+  .mobile-link:hover {
+    background-color: #f3f4f6;
+    color: #000;
+  }
+}
+
+/* Search Container component styles */
+.three-search-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  padding: 2px 4px;
+  width: 250px;
+  overflow: hidden;
+}
+
+.three-search-input {
+  border: none;
+  background: transparent;
+  flex: 1;
+  padding: 0.25rem 1rem;
+  font-size: 0.9rem;
+  outline: none;
+  box-shadow: none;
+  min-width: 0;
+}
+
+.three-search-input:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.three-search-btn {
+  background-color: #ffffff;
+  /* White background */
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: black;
+  margin-right: 2px;
+}
+
+/* Three Footer Styles */
+.footer-three {
+  width: 100%;
+  background-color: #fdf4fe;
+  /* Light pinkish/white background matching image */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000;
+  border-top: 1px solid #000;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Top Bar: Store Locator */
+.footer-top-bar {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #000;
+}
+
+.store-locator-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.store-search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 4px;
+  width: 300px;
+}
+
+.store-search-box input {
+  border: none;
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.store-search-box button {
+  background: #000;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 0;
+  /* Square button usually for footer, or slight round? Image shows square-ish or slight radius. Logic: stick to basic. */
+}
+
+.check-coverage-link {
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+}
+
+.check-coverage-link:hover {
+  text-decoration: underline;
+}
+
+/* Main Links Columns */
+.footer-main-links {
+  padding: 3rem 0;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  /* Middle column wider for 2 sub-lists if needed */
+  gap: 2rem;
+}
+
+.footer-column h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Sub-grid for "Popular phones" if we want split columns */
+.footer-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Social Icons */
+.footer-socials {
+  padding: 1rem 0 2rem;
+}
+
+.social-icons-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icons-row a {
+  color: #000;
+  /* Black icons */
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.social-icons-row a:hover {
+  opacity: 0.7;
+}
+
+/* Legal Section */
+.footer-legal {
+  padding: 2rem 0;
+  border-top: 1px solid #000;
+}
+
+.company-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.company-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  /* Row gap, Col gap */
+  margin-bottom: 2rem;
+}
+
+.company-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.85rem;
+}
+
+.company-links a:hover {
+  text-decoration: underline;
+}
+
+.legal-text p {
+  font-size: 0.75rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+    /* Stack columns */
+    gap: 2rem;
+  }
+
+  .footer-sub-grid {
+    grid-template-columns: 1fr;
+    /* Stack sub-grid too */
+  }
+
+  .store-locator-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .store-search-box {
+    width: 100%;
+  }
+}
+
+/* Footer Graphic */
+.three-footer-graphic {
+  width: 100%;
+  margin-top: 2rem;
+  line-height: 0;
+  /* Remove gap below SVG */
+}
+
+.three-footer-graphic svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .app-header {
@@ -168,9 +608,10 @@ body {
 
 .app-header h1 {
   font-family: "Sky Text", SkyText, "Inter", sans-serif;
-  font-size: 2.5rem; /* Slightly larger as requested in previous Polish */
-  font-weight: 300;
-  background: var(--sky-gradient);
+  font-size: 2.5rem;
+  /* Slightly larger as requested in previous Polish */
+  font-weight: 600;
+  background: var(--three-black);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -181,15 +622,21 @@ body {
 /* Form Card */
 /* Form Card */
 .multi-step-form-card {
-  background: rgba(255, 255, 255, 0.95); /* Slight transparency */
-  backdrop-filter: blur(10px); /* Glassmorphism */
-  border-radius: 24px; /* Slightly more rounded */
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+  background: rgba(255, 255, 255, 0.95);
+  /* Slight transparency */
+  backdrop-filter: blur(10px);
+  /* Glassmorphism */
+  border-radius: 24px;
+  /* Slightly more rounded */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
     0 10px 15px -3px rgba(0, 0, 0, 0.05),
-    0 20px 25px -5px rgba(0, 0, 0, 0.05); /* Softer, layered shadow */
-  padding: 3rem; /* More breathing room */
-  border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle border highlight */
+    0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  /* Softer, layered shadow */
+  padding: 3rem;
+  /* More breathing room */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* Subtle border highlight */
 }
 
 /* Step Indicator */
@@ -222,7 +669,8 @@ body {
   background: var(--sky-gradient);
   color: var(--white);
   transform: scale(1.1);
-  box-shadow: 0 0 0 4px #fce7f3; /* Pink-100 ring */
+  box-shadow: 0 0 0 4px #fce7f3;
+  /* Pink-100 ring */
   border-color: transparent;
 }
 
@@ -251,8 +699,15 @@ body {
 }
 
 @keyframes slideUpFade {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h2 {
@@ -287,14 +742,17 @@ h3 {
 label {
   display: block;
   margin-bottom: 0.6rem;
-  font-weight: 600; /* Bolder for clarity */
+  font-weight: 600;
+  /* Bolder for clarity */
   font-size: 0.85rem;
   color: var(--text-secondary);
-  text-transform: uppercase; /* Professional touch */
+  text-transform: uppercase;
+  /* Professional touch */
   letter-spacing: 0.04em;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 0.875rem 1rem;
   border: 1px solid var(--border-color);
@@ -306,27 +764,34 @@ input, select {
   box-shadow: var(--shadow-sm);
 }
 
-input::placeholder, select::placeholder {
+input::placeholder,
+select::placeholder {
   color: #9ca3af;
 }
 
-input:hover, select:hover {
+input:hover,
+select:hover {
   border-color: #b0b5bd;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(219, 39, 119, 0.15); /* Softer pink ring using var(--primary-color) base */
-  transform: translateY(-1px); /* Subtle lift on focus */
+  box-shadow: 0 0 0 4px rgba(219, 39, 119, 0.15);
+  /* Softer pink ring using var(--primary-color) base */
+  transform: translateY(-1px);
+  /* Subtle lift on focus */
 }
 
-input.error, select.error {
+input.error,
+select.error {
   border-color: var(--error);
   background-color: #fef2f2;
 }
 
-input.error:focus, select.error:focus {
+input.error:focus,
+select.error:focus {
   box-shadow: 0 0 0 4px #fee2e2;
 }
 
@@ -366,12 +831,15 @@ button {
 }
 
 .btn-primary {
-  background-color: #0000ff; /* Solid Blue as per image */
+  background-color: #0000ff;
+  /* Solid Blue as per image */
   color: var(--white);
   padding: 0.8rem 2.5rem;
-  border-radius: 8px; /* Standard rounded as per image */
+  border-radius: 8px;
+  /* Standard rounded as per image */
   font-weight: 700;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1); /* Subtle depth */
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  /* Subtle depth */
   margin-left: auto;
 }
 
@@ -398,19 +866,20 @@ button {
 /* Responsive Footer adjustments */
 @media (max-width: 1024px) {
   .footer-content {
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
-  }
-  
-  .footer-center {
-      order: 2; 
-      width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
   }
 
-  .footer-left, .footer-right {
-      width: 100%;
-      justify-content: center;
+  .footer-center {
+    order: 2;
+    width: 100%;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -433,26 +902,27 @@ button {
     flex-direction: column;
     gap: 0;
   }
-  
+
   .form-col .form-group {
-    margin-bottom: 1.5rem; /* Ensure spacing between stacked columns */
+    margin-bottom: 1.5rem;
+    /* Ensure spacing between stacked columns */
   }
 
   /* Reduce bottom margin on the last item in a stack if needed, 
      but keeping consistent spacing is usually better. */
 
   .step-indicator-container {
-      margin-bottom: 2rem;
+    margin-bottom: 2rem;
   }
-  
+
   .step-circle {
-      width: 36px;
-      height: 36px;
-      font-size: 0.8rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
   }
-  
+
   h2 {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 }
