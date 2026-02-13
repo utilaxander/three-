@@ -56,8 +56,8 @@ const Navbar = () => {
                     <div className="three-left-section">
                         <img src={threeLogo} alt="Three" className="three-logo" />
                         <div className="three-tabs">
-                            <a href="#" className="three-tab active">Personal</a>
-                            <a href="#" className="three-tab">Business</a>
+                            <a href="https://www.three.co.uk/" className="three-tab active">Personal</a>
+                            <a href="https://www.three.co.uk/business" className="three-tab">Business</a>
                         </div>
                     </div>
 
@@ -66,22 +66,22 @@ const Navbar = () => {
                         <div className="three-contact-group">
                             <span className="three-phone">Order by phone: 0800 033 8006</span>
                             <div className="three-util-links">
-                                <a href="#">Blog</a>
+                                <a href="https://www.three.co.uk/blog">Blog</a>
                                 <span className="util-divider">|</span>
-                                <a href="#">Coverage checker</a>
+                                <a href="https://www.three.co.uk/support/network-and-coverage/coverage">Coverage checker</a>
                                 <span className="util-divider">|</span>
-                                <a href="#">Store locator</a>
+                                <a href="https://locator.three.co.uk/search">Store locator</a>
                             </div>
                         </div>
                     </div>
 
                     {/* Actions Row - Always visible or controlled by CSS */}
                     <div className="three-actions-row">
-                        <a href="#" className="three-action-link">
+                        <a href="https://www.three.co.uk/customer-login?orgID=null&msisdn=null&B2BFlag=false" className="three-action-link">
                             <UserIcon />
                             <span className="desktop-text">Login/Register</span>
                         </a>
-                        <a href="#" className="three-action-link">
+                        <a href="https://www.three.co.uk/shop/review-basket" className="three-action-link">
                             <BasketIcon />
                             <span className="desktop-text">Basket</span>
                         </a>
@@ -98,9 +98,9 @@ const Navbar = () => {
                     </button>
 
                     <div className="three-main-links">
-                        <a href="#" className="three-nav-link">Shop</a>
-                        <a href="#" className="three-nav-link">Why Three?</a>
-                        <a href="#" className="three-nav-link">Help</a>
+                        <a href="https://www.three.co.uk/shop" className="three-nav-link">Shop</a>
+                        <a href="https://www.three.co.uk/why-three" className="three-nav-link">Why Three?</a>
+                        <a href="https://www.three.co.uk/support" className="three-nav-link">Help</a>
                     </div>
 
                     <div className="store-search-box">
@@ -113,15 +113,15 @@ const Navbar = () => {
             {/* Mobile Menu Dropdown Content (Simplified for this task) */}
             {isMenuOpen && (
                 <div className="mobile-menu-content">
-                    <a href="#" className="mobile-link">Personal</a>
-                    <a href="#" className="mobile-link">Business</a>
+                    <a href="https://www.three.co.uk/" className="mobile-link">Personal</a>
+                    <a href="https://www.three.co.uk/business/" className="mobile-link">Business</a>
                     <hr />
-                    <a href="#" className="mobile-link">Shop</a>
-                    <a href="#" className="mobile-link">Why Three?</a>
-                    <a href="#" className="mobile-link">Help</a>
+                    <a href="https://www.three.co.uk/shop" className="mobile-link">Shop</a>
+                    <a href="https://www.three.co.uk/why-three" className="mobile-link">Why Three?</a>
+                    <a href="https://www.three.co.uk/why-three" className="mobile-link">Help</a>
                     <hr />
-                    <a href="#" className="mobile-link">Login/Register</a>
-                    <a href="#" className="mobile-link">Basket</a>
+                    <a href="https://www.three.co.uk/customer-login?orgID=null&msisdn=null&B2BFlag=false" className="mobile-link">Login/Register</a>
+                    <a href="https://www.three.co.uk/shop/review-basket" className="mobile-link">Basket</a>
                 </div>
             )}
         </nav>
